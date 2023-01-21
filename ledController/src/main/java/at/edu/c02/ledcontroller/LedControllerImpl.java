@@ -77,6 +77,13 @@ public class LedControllerImpl implements LedController {
         System.out.println("LED " + response.getInt("id") + " is currently " + onOff + ". Color: " +response.getString("color"));
     }
 
-
+    @Override
+    public void turnOffAllLeads() throws IOException {
+        ArrayList<JSONObject> list = getGroupLeds();
+        for (JSONObject jsonObject : list) {
+            if (jsonObject.getBoolean("on")) jsonObject.put("on", false);
+        }
+        System.out.println(list);
+    }
 
 }
