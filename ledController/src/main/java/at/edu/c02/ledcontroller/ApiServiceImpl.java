@@ -1,5 +1,6 @@
 package at.edu.c02.ledcontroller;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -30,7 +31,7 @@ public class ApiServiceImpl implements ApiService {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         // and send a GET request
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("X-Hasura-Group-ID", "Todo");
+        connection.setRequestProperty("X-Hasura-Group-ID", "98fc1c149afbf4c899");
         // Read the response code
         int responseCode = connection.getResponseCode();
         if(responseCode != HttpURLConnection.HTTP_OK) {
@@ -53,4 +54,23 @@ public class ApiServiceImpl implements ApiService {
         // Convert response into a json object
         return new JSONObject(jsonText);
     }
+
+    @Override
+    public JSONObject getLight(int id) throws IOException {
+        JSONArray allLights = getLights().getJSONArray("lights");
+
+        for (int i = 0; i < allLights.length(); i++) {
+
+            JSONObject currentLight = allLights.getJSONObject(i);
+
+            if (currentLight.getInt("id") == id){
+                return currentLight;
+            }
+
+        }
+
+        return null;
+    }
+
+
 }
