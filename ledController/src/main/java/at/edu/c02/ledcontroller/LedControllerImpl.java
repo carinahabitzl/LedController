@@ -33,7 +33,7 @@ public class LedControllerImpl implements LedController {
                 arrayList.add(oneLight);
             }
         }
-        System.out.println(arrayList);
+        //System.out.println(arrayList);
         return arrayList;
     }
 
@@ -51,6 +51,18 @@ public class LedControllerImpl implements LedController {
         System.out.println("First light color is: " + firstLight.getString("color"));
     }
 
+    @Override
+    public void getGroupStatus() throws IOException {
+        ArrayList<JSONObject> list = getGroupLeds();
+        for (JSONObject jsonObject : list) {
+            String onOff = "";
+            if (jsonObject.getBoolean("on")) onOff = "on";
+            else onOff = "off";
+            System.out.println("LED " + jsonObject.getInt("id")
+                    + " is currently " + onOff
+                    + ". Color: " + jsonObject.getString("color"));
+        }
+    }
 
 
 }
