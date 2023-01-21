@@ -23,8 +23,10 @@ public class Main {
             {
                 ledController.demo();
             }
-
-
+            if(input.equalsIgnoreCase("groupstatus"))
+            {
+                ledController.getGroupStatus();
+            }
 
 
         }
