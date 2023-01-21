@@ -27,6 +27,13 @@ public class Main {
             {
                 ledController.getGroupStatus();
             }
+            if(input.equalsIgnoreCase("status"))
+            {
+                System.out.println("Please specify LED ID:");
+                input = reader.readLine();
+                ledController.status(Integer.parseInt(input));
+            }
+
 
 
         }

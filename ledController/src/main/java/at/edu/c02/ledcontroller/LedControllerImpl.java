@@ -64,5 +64,19 @@ public class LedControllerImpl implements LedController {
         }
     }
 
+    @Override
+    public void status(int id) throws IOException{
+        // Call `getLights`, the response is a json object in the form `{ "lights": [ { ... }, { ... } ] }`
+        JSONObject response = apiService.getLight(id);
+        String onOff = "";
+        if (response.getBoolean("on")){
+            onOff = "on";
+        } else {
+            onOff = "off";
+        }
+        System.out.println("LED " + response.getInt("id") + " is currently " + onOff + ". Color: " +response.getString("color"));
+    }
+
+
 
 }

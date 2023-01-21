@@ -5,4 +5,5 @@ import java.io.IOException;
 public interface LedController {
     void demo() throws IOException;
     void getGroupStatus() throws IOException;
+    void status(int id) throws IOException;
 }
