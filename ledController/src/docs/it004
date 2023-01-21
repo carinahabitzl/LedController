@@ -18,6 +18,10 @@
         Carina & Guilherme: Einlesen zu Story 2.1; Unterstützung von Jasmin & Diana bei Story 2.1
 
     2.2 Meeting 2
-
+        Jasmin & Diana --> Methoden zu Story 2.1 implementiert, End-to-End Test nicht fertig gestellt, Methoden direkt in Main Methode getestet, dadurch auch bereits Story 2.5 abgeschlossen, Merge der aktuellen Branche führte abermals zu Merge Conflicts
+        Carina & Guilherme --> Unterstützung der Implementierung zu Story 2.1, Merge der Branche turnOffAllLights
 
 3. Retrospektive
+        11 Punkte geschafft (von 14 geplanten Punkten) aufgrund von Zeitmangel (u.a. wegen Github & Merge-Problemen)
+                --> Stories 2.3 und 2.4 sind noch offen
+        in Zukunft eventuell Puffer für unvorhersehbare Ereignisse einplanen.
