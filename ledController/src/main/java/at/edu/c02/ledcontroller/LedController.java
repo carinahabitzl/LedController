@@ -6,4 +6,5 @@ public interface LedController {
     void demo() throws IOException;
     void getGroupStatus() throws IOException;
     void status(int id) throws IOException;
+    void setLightOnController(int id, String color) throws IOException;
 }

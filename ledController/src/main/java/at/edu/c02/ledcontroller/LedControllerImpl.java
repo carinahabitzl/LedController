@@ -77,6 +77,10 @@ public class LedControllerImpl implements LedController {
         System.out.println("LED " + response.getInt("id") + " is currently " + onOff + ". Color: " +response.getString("color"));
     }
 
+    @Override
+    public void setLightOnController(int id, String color) throws IOException {
+        apiService.setLight(id,color,true);
+    }
 
 
 }

@@ -33,6 +33,15 @@ public class Main {
                 input = reader.readLine();
                 ledController.status(Integer.parseInt(input));
             }
+            if(input.equalsIgnoreCase("setled"))
+            {
+                System.out.println("Which LED?");
+                int id = Integer.parseInt(reader.readLine());
+                System.out.println("Which color?");
+                String color = reader.readLine();
+                ledController.setLightOnController(id,color);
+                System.out.println("LED color set!");
+            }
 
 
 
