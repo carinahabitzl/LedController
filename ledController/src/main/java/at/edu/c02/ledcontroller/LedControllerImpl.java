@@ -78,6 +78,12 @@ public class LedControllerImpl implements LedController {
     }
 
     @Override
+
+    public void setLightOnController(int id, String color) throws IOException {
+        apiService.setLight(id,color,true);
+    }
+
+
     public void turnOffAllLeads() throws IOException {
         ArrayList<JSONObject> list = getGroupLeds();
         for (JSONObject jsonObject : list) {
@@ -85,5 +91,6 @@ public class LedControllerImpl implements LedController {
         }
         System.out.println(list);
     }
+
 
 }
