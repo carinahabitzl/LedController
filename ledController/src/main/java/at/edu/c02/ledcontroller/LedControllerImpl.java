@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * This class handles the actual logic
@@ -14,6 +15,26 @@ public class LedControllerImpl implements LedController {
     public LedControllerImpl(ApiService apiService)
     {
         this.apiService = apiService;
+    }
+
+    public ArrayList<JSONObject> getGroupLeds() throws IOException {
+        // Array aus allen LED-Status der Gruppen-LEDs zurückgeben
+        JSONObject response = apiService.getLights();
+        JSONArray lights = response.getJSONArray("lights");
+        ArrayList<JSONObject> arrayList = new ArrayList<>();
+        for (int i = 0; i < lights.length(); i++) {
+            /*if (!lights.getJSONObject(i).getJSONObject("groupByGroup").getString("name").equals("D")) {
+                lights.remove(i);
+            }*/
+            JSONObject oneLight = lights.getJSONObject(i);
+            JSONObject group = oneLight.getJSONObject("groupByGroup");
+
+            if (group.getString("name").equals("D")) {
+                arrayList.add(oneLight);
+            }
+        }
+        System.out.println(arrayList);
+        return arrayList;
     }
 
     @Override
